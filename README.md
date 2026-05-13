@@ -11,8 +11,6 @@ license: apache-2.0
 short_description: 21 CFR Part 11 deterministic batch record date validator
 ---
 
-<!-- GitHub README + HuggingFace Spaces landing page -->
-
 <div align="center">
 
 # 🛡️ Validated BMR Micro-Agent
@@ -33,20 +31,18 @@ for validating date formats and chronological sequence in electronic Batch Recor
 
 ---
 
-## 🎯 What This Agent Does
+## What This Agent Does
 
-In pharmaceutical manufacturing, an electronic Batch Record (eBR) is a legal
-document. Every date entry must:
+In pharmaceutical manufacturing, an electronic Batch Record (eBR) is a legal document. Every date entry must:
 
 1. **Conform to ICH Q7 format** — `DD-MMM-YYYY` (e.g., `10-MAY-2026`)
 2. **Follow chronological order** — no step can be dated *before* the preceding step (backdating indicator)
 
-A single deviation triggers a **FDA data integrity finding**. This agent checks
-both rules deterministically in < 5 milliseconds.
+A single deviation triggers an FDA data integrity finding. This agent checks both rules deterministically in < 5 milliseconds.
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 Input: BMR Text (plain-text / OCR)
@@ -79,7 +75,7 @@ Output: Part11AuditTrail (Pydantic v2 JSON)
 
 ---
 
-## ⚡ Quick Start
+## Quick Start
 
 ```bash
 # 1. Clone
@@ -99,7 +95,7 @@ python app.py
 
 ---
 
-## 📄 Sample Output
+## Sample Output
 
 ```json
 {
@@ -118,7 +114,7 @@ python app.py
         "location": "Line 3",
         "found_value": "05/11/2026",
         "expected_value": "DD-MMM-YYYY",
-        "delta": "Format deviation — expected ICH Q7 standard"
+        "delta": "Format deviation - expected ICH Q7 standard"
       }
     },
     {
@@ -128,7 +124,7 @@ python app.py
         "location": "Line 5",
         "found_value": "09-MAY-2026 (follows 11-MAY-2026 at Line 4)",
         "expected_value": ">= 11-MAY-2026",
-        "delta": "-2 days — chronological break (possible backdating)"
+        "delta": "-2 days - chronological break (possible backdating)"
       }
     }
   ],
@@ -146,26 +142,25 @@ python app.py
 
 ---
 
-## 📦 Validation Package
+## Validation Package
 
-The `/validation_package` folder contains the **monetizable product** — the
-regulatory trust layer that no open-source code alone can provide:
+The `/validation_package` folder contains the regulatory trust layer that separates this from a bare script:
 
 | Document | Description | GAMP 5 Phase |
 |---|---|---|
 | [`IQ_Report.md`](./validation_package/IQ_Report.md) | Installation Qualification — Python version, dep hashes, file integrity | IQ |
-| [`OQ_Test_Matrix.csv`](./validation_package/OQ_Test_Matrix.csv) | 1,000 synthetic test cases (4 categories × 250 rows) | OQ |
+| [`OQ_Test_Matrix.csv`](./validation_package/OQ_Test_Matrix.csv) | 1,000 synthetic test cases (4 categories x 250 rows) | OQ |
 | [`21CFR11_Addendum.md`](./validation_package/21CFR11_Addendum.md) | Field-by-field FDA Subpart B requirement mapping + ALCOA+ assessment | OQ/PQ |
 | [`generate_oq_matrix.py`](./validation_package/generate_oq_matrix.py) | Reproducible OQ matrix generator (deterministic seed) | OQ |
 
-Generate the OQ matrix:
+Generate the OQ matrix locally:
 ```bash
 python validation_package/generate_oq_matrix.py
 ```
 
 ---
 
-## 🔬 OQ Test Categories
+## OQ Test Categories
 
 | Category | Count | Description |
 |---|---|---|
@@ -176,20 +171,20 @@ python validation_package/generate_oq_matrix.py
 
 ---
 
-## 📐 Rules Reference
+## Rules Reference
 
 | Rule ID | Name | Standard | Logic |
 |---|---|---|---|
 | `RULE_01_FORMAT` | Date Format Check | ICH Q7 / 21 CFR Part 11 | Must match `DD-MMM-YYYY` with valid month abbreviation and valid calendar date |
-| `RULE_02_SEQUENCE` | Chronological Sequence | GxP Data Integrity / ALCOA+ | Date[N] must be ≥ Date[N-1]; any reversal is a backdating indicator |
+| `RULE_02_SEQUENCE` | Chronological Sequence | GxP Data Integrity / ALCOA+ | Date[N] must be >= Date[N-1]; any reversal is a backdating indicator |
 
 ---
 
-## 💡 Design Philosophy
+## Design Philosophy
 
 > **We do not use probabilistic generative models for deterministic compliance tasks.**
 
-| Concern | GPT-4 Approach | This Agent |
+| Concern | LLM Approach | This Agent |
 |---|---|---|
 | Cost per execution | ~$0.01–$0.10 | ~$0.000001 |
 | Hallucination risk | Present | Zero (deterministic) |
@@ -200,7 +195,7 @@ python validation_package/generate_oq_matrix.py
 
 ---
 
-## 📋 Requirements
+## Requirements
 
 ```
 pydantic==2.7.1
@@ -208,11 +203,11 @@ gradio==4.31.0
 psutil==5.9.8
 ```
 
-Python ≥ 3.10 | No GPU required | Runs on any laptop or air-gapped GxP server
+Python >= 3.10 | No GPU required | Runs on any laptop or air-gapped GxP server
 
 ---
 
-## 📜 License
+## License
 
 Apache 2.0 — see [`LICENSE`](./LICENSE)
 
