@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Gradio cache
+gradio_cached_examples/
+flagged/
+
+# pytest / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Secrets
+.env
+*.env
+
+# Wheels (download locally for hash verification, do not commit)
+wheels/

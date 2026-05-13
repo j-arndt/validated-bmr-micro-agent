@@ -1,0 +1,3 @@
+pydantic==2.7.1
+gradio==4.31.0
+psutil==5.9.8
