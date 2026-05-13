@@ -1,6 +1,6 @@
 """
-app.py — Gradio UI for HuggingFace Spaces
-==========================================
+app.py — Gradio UI for HuggingFace Spaces (Gradio 5.x)
+========================================================
 Enterprise compliance UI for the BMR-Date-Sequence-Validator.
 
 Deploy to HuggingFace Spaces:
@@ -124,8 +124,8 @@ with gr.Blocks(
         )
 
     # ── Wire buttons ─────────────────────────────────────────────────────────
-    btn_pass.click(lambda: SAMPLE_PASS, inputs=None, outputs=input_box)
-    btn_fail.click(lambda: SAMPLE_FAIL, inputs=None, outputs=input_box)
+    btn_pass.click(lambda: SAMPLE_PASS, inputs=[], outputs=input_box)
+    btn_fail.click(lambda: SAMPLE_FAIL, inputs=[], outputs=input_box)
     run_btn.click(
         fn=lambda text: validator.run(text),
         inputs=input_box,
