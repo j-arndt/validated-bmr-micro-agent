@@ -1,6 +1,16 @@
-<!-- HuggingFace Spaces front-matter (add back when deploying to HF Spaces):
-title: BMR Date & Sequence Validator | emoji: 🛡️ | sdk: gradio 4.31.0 | app_file: app.py
--->
+---
+title: BMR Date & Sequence Validator
+emoji: 🛡️
+colorFrom: gray
+colorTo: green
+sdk: gradio
+sdk_version: 4.31.0
+app_file: app.py
+pinned: true
+license: apache-2.0
+short_description: 21 CFR Part 11 deterministic batch record date validator
+---
+
 
 <div align="center">
 
