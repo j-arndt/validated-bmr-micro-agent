@@ -167,14 +167,6 @@ python validation_package/generate_oq_matrix.py
 
 ---
 
-## 🎤 The Interview Line
-
-When a VP of Quality or AI hiring manager asks *"How do you handle LLM hallucinations in compliance?"*:
-
-> *"I don't. I isolate them. If a task requires regulatory compliance — like checking date sequences in a manufacturing record — I refuse to use an LLM. I deploy an auditable, deterministic micro-agent wrapped in a strict 21 CFR Part 11 JSON schema, backed by a 1,000-case OQ test suite. I save expensive, probabilistic LLM compute strictly for unstructured reasoning tasks. Go ahead and click Execute — you'll see the compliance payload generated in 3 milliseconds."*
-
----
-
 ## 🔬 OQ Test Categories
 
 | Category | Count | Description |
