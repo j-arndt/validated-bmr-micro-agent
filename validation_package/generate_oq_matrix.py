@@ -62,8 +62,8 @@ for i in range(250):
         "category": "A_TRUE_NEGATIVE",
         "description": "Valid DD-MMM-YYYY format, chronological sequence",
         "input_text": (
-            f"Step 1 completed on {fmt_date(step1)}.\n"
-            f"Step 2 completed on {fmt_date(step2)}.\n"
+            f"Step 1 completed on {fmt_date(step1)}. | "
+            f"Step 2 completed on {fmt_date(step2)}. | "
             f"Step 3 completed on {fmt_date(step3)}."
         ),
         "expected_status": "PASS",
@@ -113,7 +113,7 @@ for i in range(250):
         "category": "C_SEQUENCE_ERROR",
         "description": "Chronological break — step 2 is before step 1",
         "input_text": (
-            f"Step 1 completed on {fmt_date(step1)}.\n"
+            f"Step 1 completed on {fmt_date(step1)}. | "
             f"Step 2 completed on {fmt_date(step2)}."
         ),
         "expected_status": "FAIL",
@@ -172,7 +172,7 @@ for i in range(50):
         "category": "D_EDGE_CASE",
         "description": "Same-day entries are valid (delta = 0 days)",
         "input_text": (
-            f"Step 1 on {fmt_date(same_day)}.\n"
+            f"Step 1 on {fmt_date(same_day)}. | "
             f"Step 2 on {fmt_date(same_day)}."
         ),
         "expected_status": "PASS",
