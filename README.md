@@ -22,6 +22,7 @@ short_description: 21 CFR Part 11 deterministic batch record date validator
 [![License](https://img.shields.io/badge/License-Apache%202.0-orange?style=for-the-badge)](./LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-yellow?style=for-the-badge)](https://python.org)
 [![Compute Cost](https://img.shields.io/badge/Compute%20Cost-%240.000001%20%2F%20exec-purple?style=for-the-badge)]()
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-HuggingFace%20Spaces-ff6b35?style=for-the-badge)](https://huggingface.co/spaces/justinarndt/validated-bmr-micro-agent)
 
 **A 100% deterministic, cryptographically-hashed, 21 CFR Part 11-compliant micro-agent  
 for validating date formats and chronological sequence in electronic Batch Records.**
@@ -85,6 +86,7 @@ cd validated-bmr-micro-agent
 
 # 2. Install
 pip install -r requirements.txt
+pip install "gradio>=5.0.0"   # managed by sdk_version on HF Spaces; install manually for local use
 
 # 3. Run engine (CLI)
 python engine.py
@@ -199,10 +201,11 @@ python validation_package/generate_oq_matrix.py
 ## Requirements
 
 ```
-pydantic==2.7.1
-gradio==4.31.0
-psutil==5.9.8
+pydantic>=2.9.0
+psutil>=5.9.8
 ```
+
+Gradio is managed via `sdk_version: 5.29.0` on HuggingFace Spaces. For local use, install separately: `pip install "gradio>=5.0.0"`
 
 Python >= 3.10 | No GPU required | Runs on any laptop or air-gapped GxP server
 
