@@ -1,5 +1,3 @@
-# Validated BMR Micro-Agent
-
 ---
 title: BMR Date & Sequence Validator
 emoji: 🛡️
